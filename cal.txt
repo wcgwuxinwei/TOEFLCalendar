@@ -1,0 +1,138 @@
+2017-1-1-Sun:
+	New: 1,
+	Revision: 1,
+2017-1-2-Mon:
+	New: 2,
+	Revision: 1,2,
+2017-1-3-Tue:
+	New: 3,
+	Revision: 1,2,3,
+2017-1-4-Wed:
+	New: 4,
+	Revision: 2,3,4,
+2017-1-5-Thu:
+	New: 5,
+	Revision: 1,3,4,5,
+2017-1-6-Fri:
+	New: 6,
+	Revision: 2,4,5,6,
+2017-1-7-Sat:
+	New: 7,
+	Revision: 3,5,6,7,
+2017-1-8-Sun:
+	New: 8,
+	Revision: 1,4,6,7,8,
+2017-1-9-Mon:
+	New: 9,
+	Revision: 2,5,7,8,9,
+2017-1-10-Tue:
+	New: 10,
+	Revision: 3,6,8,9,10,
+2017-1-11-Wed:
+	New: 11,
+	Revision: 4,7,9,10,11,
+2017-1-12-Thu:
+	New: 12,
+	Revision: 5,8,10,11,12,
+2017-1-13-Fri:
+	New: 13,
+	Revision: 6,9,11,12,13,
+2017-1-14-Sat:
+	New: 14,
+	Revision: 7,10,12,13,14,
+2017-1-15-Sun:
+	New: 15,
+	Revision: 8,11,13,14,15,
+2017-1-16-Mon:
+	New: 16,
+	Revision: 1,9,12,14,15,16,
+2017-1-17-Tue:
+	New: 17,
+	Revision: 2,10,13,15,16,17,
+2017-1-18-Wed:
+	New: 18,
+	Revision: 3,11,14,16,17,18,
+2017-1-19-Thu:
+	New: 19,
+	Revision: 4,12,15,17,18,19,
+2017-1-20-Fri:
+	New: 20,
+	Revision: 5,13,16,18,19,20,
+2017-1-21-Sat:
+	New: 21,
+	Revision: 6,14,17,19,20,21,
+2017-1-22-Sun:
+	New: 22,
+	Revision: 7,15,18,20,21,22,
+2017-1-23-Mon:
+	New: 23,
+	Revision: 8,16,19,21,22,23,
+2017-1-24-Tue:
+	New: 24,
+	Revision: 9,17,20,22,23,24,
+2017-1-25-Wed:
+	New: 25,
+	Revision: 10,18,21,23,24,25,
+2017-1-26-Thu:
+	New: 26,
+	Revision: 11,19,22,24,25,26,
+2017-1-27-Fri:
+	New: 27,
+	Revision: 12,20,23,25,26,27,
+2017-1-28-Sat:
+	New: 28,
+	Revision: 13,21,24,26,27,28,
+2017-1-29-Sun:
+	New: 29,
+	Revision: 14,22,25,27,28,29,
+2017-1-30-Mon:
+	New: 30,
+	Revision: 15,23,26,28,29,30,
+2017-1-31-Tue:
+	New: 
+	Revision: 16,24,27,29,30,
+2017-2-1-Wed:
+	New: 
+	Revision: 17,25,28,30,
+2017-2-2-Thu:
+	New: 
+	Revision: 18,26,29,
+2017-2-3-Fri:
+	New: 
+	Revision: 19,27,30,
+2017-2-4-Sat:
+	New: 
+	Revision: 20,28,
+2017-2-5-Sun:
+	New: 
+	Revision: 21,29,
+2017-2-6-Mon:
+	New: 
+	Revision: 22,30,
+2017-2-7-Tue:
+	New: 
+	Revision: 23,
+2017-2-8-Wed:
+	New: 
+	Revision: 24,
+2017-2-9-Thu:
+	New: 
+	Revision: 25,
+2017-2-10-Fri:
+	New: 
+	Revision: 26,
+2017-2-11-Sat:
+	New: 
+	Revision: 27,
+2017-2-12-Sun:
+	New: 
+	Revision: 28,
+2017-2-13-Mon:
+	New: 
+	Revision: 29,
+2017-2-14-Tue:
+	New: 
+	Revision: 30,
+2017-2-15-Wed:
+	New: 
+	Revision: 
