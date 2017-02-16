@@ -1,4 +1,2 @@
-# YaoNiMingCalendar
-Just For GRE Preparation planning
-
 # TOEFL Calendar
+Just For TOEFL Preparation planning gererator, Special thanks to current1990(zhuangbi)
