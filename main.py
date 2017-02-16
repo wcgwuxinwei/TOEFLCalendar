@@ -6,37 +6,56 @@
 import calendar
 from datetime import datetime
 
-total_lists = 31
-list_per_day = 1
+cur_list = []
+total_lists = []
+total_lists_count = 45
+list_per_day = 2
+
+for idx in range(1, total_lists_count+1):
+    total_lists.append(idx)
+
+for idx in range(1, list_per_day+1):
+    cur_list.append(idx)
 
 weekday_str = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 gaps = []
-rev_gaps = [0, 1, 2, 4, 7, 15]
+rev_gaps = [0, 1, 3, 7, 15]
 
 c = calendar.Calendar()
 today = datetime.today()
-year = today.year
-month = today.month
-date = today.day
+year_now = today.year
+month_now = today.month
+day_now = today.day
+
+def AppendListOfString(src_strings, strings):
+    for string in strings:
+        src_strings.append(string)
+    return src_strings
 
 def GetPlannedDayList(year, month):
     planned_days = []
     total_months = 0
 
-    for month_cnt in range(1, 12):
+    for month_cnt in range(month, 12):
         total_months += 1
-        for date, weekday in c.itermonthdays2(2017, month_cnt):
+        for date, weekday in c.itermonthdays2(year, month_cnt):
             if date == 0:
+                continue
+            elif (month == month_now and date < 15):
                 continue
             else:
                 planned_days.append({'Month': month_cnt, 'Date': date,
                                      'Weekday': weekday, 'Week': weekday_str[weekday], 'New': [], 'Revision': []})
-                for list_number in range(1, min(len(planned_days) + 1, total_lists)):
-                    if list_number == len(planned_days):
-                        planned_days[-1]['New'].append(list_number)
-                    if len(planned_days) - list_number in rev_gaps:
-                        planned_days[-1]['Revision'].append(list_number)
+
+                for list_range in range(0, min(len(planned_days) * list_per_day + 1, total_lists_count), list_per_day):
+                    list_numbers = []
+                    list_numbers = AppendListOfString(list_numbers, total_lists[list_range:list_range+list_per_day])
+                    if list_numbers[-1] == len(planned_days) * list_per_day:
+                        planned_days[-1]['New'] = AppendListOfString(planned_days[-1]['New'], list_numbers)
+                    if len(planned_days) - list_numbers[-1] / list_per_day in rev_gaps:
+                        planned_days[-1]['Revision'] = AppendListOfString(planned_days[-1]['Revision'], list_numbers)
+
                 if len(planned_days[-1]['New']) == 0 and len(planned_days[-1]['Revision']) == 0:
                     return planned_days, total_months
 
@@ -44,7 +63,7 @@ def GetPlannedDayList(year, month):
 def FormatDateInfo(day, newline='\n'):
     temp_str = '%d-%d-%d-%s:' + newline + '\tNew: ' + len(day['New']) * "%d," + newline + '\tRevision: ' + len(
         day['Revision']) * '%d,' + newline
-    pargs = [year, day['Month'], day['Date'], day['Week']]
+    pargs = [year_now, day['Month'], day['Date'], day['Week']]
     pargs.extend(day['New'])
     pargs.extend(day['Revision'])
     return temp_str % tuple(pargs)
@@ -54,12 +73,6 @@ def GetTemplateRawData(planned_days):
     text_output = []
     for day in planned_days:
         text_output.append(FormatDateInfo(day))
-        # temp_str = '%d-%d-%d-%s:\n\tNew: ' + len(day['New']) * "%d," + '\n\tRevision: ' + len(day['Revision']) * '%d,' + '\n'
-        # pargs = [year, day['Month'], day['Date'], day['Week']]
-        # pargs.extend(day['New'])
-        # pargs.extend(day['Revision'])
-        # text_output.append(temp_str % tuple(pargs))
-
     return text_output
 
 
@@ -85,7 +98,7 @@ def RenderTemplate(planned_days, total_months):
     current_month = planned_days[0]['Month']
 
     real_template.extend(table_head)
-    real_template[1] = real_template[1].replace("{$YEAR}", str(2017).encode('utf-8'))
+    real_template[1] = real_template[1].replace("{$YEAR}", str(str(year_now).encode('utf-8')))
     real_template[1] = real_template[1].replace("{$MONTH}", str(current_month))
     real_template.append(line_template)
 
@@ -96,7 +109,7 @@ def RenderTemplate(planned_days, total_months):
             real_template.append(table_end)
             real_template.append(new_line)
             real_template.extend(table_head)
-            real_template[-2] = real_template[-2].replace('{$MONTH}'.decode('utf-8'), str(current_month))
+            real_template[-2] = real_template[-2].replace('{$MONTH}', str(current_month))
             real_template[-2] = real_template[-2].replace('{$YEAR}', str(2017))
             real_template.append(line_template)
         elif day['Weekday'] == 0:
@@ -110,7 +123,7 @@ def RenderTemplate(planned_days, total_months):
 
 
 if __name__ == "__main__":
-    planned_days, total_months = GetPlannedDayList(year, month)
+    planned_days, total_months = GetPlannedDayList(year_now, month_now)
     html_output = RenderTemplate(planned_days, total_months)
     with open('cal.html', 'w') as f:
         for line in html_output:
