@@ -1,2 +1,2 @@
 # TOEFLCalendar
-Just For TOEFL Preparation planning gererator, **Special thanks to current1990(spiritual international friend)**
+Just For TOEFL Preparation planning gererator
